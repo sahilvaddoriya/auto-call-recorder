@@ -55,12 +55,34 @@ class MainActivity : AppCompatActivity() {
              startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
         }
 
+        // Battery Optimization Logic
+        val btnBatteryOptimizations = findViewById<Button>(R.id.btnBatteryOptimizations)
+        val pm = getSystemService(Context.POWER_SERVICE) as android.os.PowerManager
+        
+        if (pm.isIgnoringBatteryOptimizations(packageName)) {
+            btnBatteryOptimizations.visibility = android.view.View.GONE
+        } else {
+            btnBatteryOptimizations.visibility = android.view.View.VISIBLE
+            btnBatteryOptimizations.setOnClickListener {
+                val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)
+                intent.data = android.net.Uri.parse("package:$packageName")
+                startActivity(intent)
+            }
+        }
+
         checkPermissions()
     }
 
     override fun onResume() {
         super.onResume()
         updateServiceStatus()
+        
+        // Re-check battery optimization status
+        val btnBatteryOptimizations = findViewById<Button>(R.id.btnBatteryOptimizations)
+        val pm = getSystemService(Context.POWER_SERVICE) as android.os.PowerManager
+        if (pm.isIgnoringBatteryOptimizations(packageName)) {
+            btnBatteryOptimizations.visibility = android.view.View.GONE
+        }
     }
 
     private fun checkPermissions() {

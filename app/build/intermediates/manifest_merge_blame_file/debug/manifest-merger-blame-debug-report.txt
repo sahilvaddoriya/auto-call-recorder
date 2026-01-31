@@ -11,151 +11,154 @@
 11    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 11-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:5:5-75
 11-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:5:22-72
-12
-13    <permission
-13-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
-14        android:name="com.example.autocallrecorder.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-14-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
-15        android:protectionLevel="signature" />
-15-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
-16
-17    <uses-permission android:name="com.example.autocallrecorder.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-17-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
-17-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
-18
-19    <application
-19-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:7:5-42:19
-20        android:name="com.example.autocallrecorder.AutoCallRecorderApp"
-20-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:8:9-44
-21        android:allowBackup="true"
-21-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:9:9-35
-22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-22-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
-23        android:dataExtractionRules="@xml/data_extraction_rules"
-23-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:10:9-65
-24        android:debuggable="true"
-25        android:extractNativeLibs="false"
-26        android:fullBackupContent="@xml/backup_rules"
-26-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:11:9-54
-27        android:icon="@mipmap/ic_launcher"
-27-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:12:9-43
-28        android:label="@string/app_name"
-28-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:13:9-41
-29        android:roundIcon="@mipmap/ic_launcher_round"
-29-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:14:9-54
-30        android:supportsRtl="true"
-30-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:15:9-35
-31        android:testOnly="true"
-32        android:theme="@style/Theme.AutoCallRecorder" >
-32-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:16:9-54
-33        <service
-33-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:19:9-31:19
-34            android:name="com.example.autocallrecorder.CallRecorderService"
-34-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:20:13-48
-35            android:exported="true"
-35-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:22:13-36
-36            android:label="@string/accessibility_service_label"
-36-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:23:13-64
-37            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
-37-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:21:13-79
-38            <intent-filter>
-38-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:24:13-26:29
-39                <action android:name="android.accessibilityservice.AccessibilityService" />
-39-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:25:17-92
-39-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:25:25-89
-40            </intent-filter>
-41
-42            <meta-data
-42-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:28:13-30:72
-43                android:name="android.accessibilityservice"
-43-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:29:17-60
-44                android:resource="@xml/accessibility_service_config" />
-44-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:30:17-69
-45        </service>
-46
-47        <activity
-47-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:33:9-41:20
-48            android:name="com.example.autocallrecorder.MainActivity"
-48-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:34:13-41
-49            android:exported="true" >
-49-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:35:13-36
-50            <intent-filter>
-50-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:36:13-40:29
-51                <action android:name="android.intent.action.MAIN" />
-51-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:37:17-69
-51-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:37:25-66
-52
-53                <category android:name="android.intent.category.LAUNCHER" />
-53-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:39:17-77
-53-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:39:27-74
-54            </intent-filter>
-55        </activity>
-56
-57        <provider
-57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-58            android:name="androidx.startup.InitializationProvider"
-58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
-59            android:authorities="com.example.autocallrecorder.androidx-startup"
-59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
-60            android:exported="false" >
-60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
-61            <meta-data
-61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-62                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
-63                android:value="androidx.startup" />
-63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
-64            <meta-data
-64-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\sahil\.gradle\caches\transforms-4\3ca45f5f1e0e4934fdfbfb4e16d57321\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
-65                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-65-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\sahil\.gradle\caches\transforms-4\3ca45f5f1e0e4934fdfbfb4e16d57321\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
-66                android:value="androidx.startup" />
-66-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\sahil\.gradle\caches\transforms-4\3ca45f5f1e0e4934fdfbfb4e16d57321\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
-67            <meta-data
-67-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-68                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-68-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-69                android:value="androidx.startup" />
-69-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-70        </provider>
-71
-72        <receiver
-72-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-73            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-73-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-74            android:directBootAware="false"
-74-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-75            android:enabled="true"
-75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-76            android:exported="true"
-76-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-77            android:permission="android.permission.DUMP" >
-77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-78            <intent-filter>
-78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-79                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-79-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-79-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-80            </intent-filter>
-81            <intent-filter>
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-82                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-83            </intent-filter>
-84            <intent-filter>
-84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-85                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-86            </intent-filter>
-87            <intent-filter>
-87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-88                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-89            </intent-filter>
-90        </receiver>
-91    </application>
-92
-93</manifest>
+12    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+12-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:6:5-95
+12-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:6:22-92
+13
+14    <permission
+14-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+15        android:name="com.example.autocallrecorder.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+15-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+16        android:protectionLevel="signature" />
+16-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+17
+18    <uses-permission android:name="com.example.autocallrecorder.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+18-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+18-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+19
+20    <application
+20-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:8:5-43:19
+21        android:name="com.example.autocallrecorder.AutoCallRecorderApp"
+21-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:9:9-44
+22        android:allowBackup="true"
+22-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:10:9-35
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.12.0] C:\Users\sahil\.gradle\caches\transforms-4\e30f893c776a5aa8b17d839b68d7ffd7\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+24        android:dataExtractionRules="@xml/data_extraction_rules"
+24-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:11:9-65
+25        android:debuggable="true"
+26        android:extractNativeLibs="false"
+27        android:fullBackupContent="@xml/backup_rules"
+27-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:12:9-54
+28        android:icon="@mipmap/ic_launcher"
+28-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:13:9-43
+29        android:label="@string/app_name"
+29-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:14:9-41
+30        android:roundIcon="@mipmap/ic_launcher_round"
+30-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:15:9-54
+31        android:supportsRtl="true"
+31-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:16:9-35
+32        android:testOnly="true"
+33        android:theme="@style/Theme.AutoCallRecorder" >
+33-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:17:9-54
+34        <service
+34-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:20:9-32:19
+35            android:name="com.example.autocallrecorder.CallRecorderService"
+35-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:21:13-48
+36            android:exported="true"
+36-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:23:13-36
+37            android:label="@string/accessibility_service_label"
+37-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:24:13-64
+38            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+38-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:22:13-79
+39            <intent-filter>
+39-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:25:13-27:29
+40                <action android:name="android.accessibilityservice.AccessibilityService" />
+40-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:26:17-92
+40-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:26:25-89
+41            </intent-filter>
+42
+43            <meta-data
+43-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:29:13-31:72
+44                android:name="android.accessibilityservice"
+44-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:30:17-60
+45                android:resource="@xml/accessibility_service_config" />
+45-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:31:17-69
+46        </service>
+47
+48        <activity
+48-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:34:9-42:20
+49            android:name="com.example.autocallrecorder.MainActivity"
+49-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:35:13-41
+50            android:exported="true" >
+50-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:36:13-36
+51            <intent-filter>
+51-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:37:13-41:29
+52                <action android:name="android.intent.action.MAIN" />
+52-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:38:17-69
+52-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:38:25-66
+53
+54                <category android:name="android.intent.category.LAUNCHER" />
+54-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:40:17-77
+54-->D:\Sahil Projects\AutoCallRecorder\app\src\main\AndroidManifest.xml:40:27-74
+55            </intent-filter>
+56        </activity>
+57
+58        <provider
+58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+59            android:name="androidx.startup.InitializationProvider"
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+60            android:authorities="com.example.autocallrecorder.androidx-startup"
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+61            android:exported="false" >
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+62            <meta-data
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+63                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+63-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+64                android:value="androidx.startup" />
+64-->[androidx.emoji2:emoji2:1.2.0] C:\Users\sahil\.gradle\caches\transforms-4\df27a690beee14bb6cf21b8fced73893\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+65            <meta-data
+65-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\sahil\.gradle\caches\transforms-4\3ca45f5f1e0e4934fdfbfb4e16d57321\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+66                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+66-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\sahil\.gradle\caches\transforms-4\3ca45f5f1e0e4934fdfbfb4e16d57321\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+67                android:value="androidx.startup" />
+67-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\sahil\.gradle\caches\transforms-4\3ca45f5f1e0e4934fdfbfb4e16d57321\transformed\jetified-lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+68            <meta-data
+68-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+69                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+69-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+70                android:value="androidx.startup" />
+70-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+71        </provider>
+72
+73        <receiver
+73-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+74            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+74-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+75            android:directBootAware="false"
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+76            android:enabled="true"
+76-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+77            android:exported="true"
+77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+78            android:permission="android.permission.DUMP" >
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+79            <intent-filter>
+79-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+80                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+81            </intent-filter>
+82            <intent-filter>
+82-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+83                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+84            </intent-filter>
+85            <intent-filter>
+85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+86                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+87            </intent-filter>
+88            <intent-filter>
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+89                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\sahil\.gradle\caches\transforms-4\9860935787e979230db0ff12c9b13fc0\transformed\jetified-profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+90            </intent-filter>
+91        </receiver>
+92    </application>
+93
+94</manifest>
