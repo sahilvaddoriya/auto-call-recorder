@@ -19,3 +19,16 @@ deploymentTargetDropDown.xml
 render.experimental.xml
 *.jks
 /app/release-key.jks
+# Android Standard
+build/
+app/build/
+.gradle/
+**/build/
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+out/
+.vscode/
