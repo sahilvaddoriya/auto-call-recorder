@@ -1,0 +1,14 @@
+D:\Sahil Projects\AutoCallRecorder\app\src\main\res\xml\data_extraction_rules.xml:4: Error: Unexpected domain user, expected one of root, file, database, sharedpref, external [FullBackupContent]
+        <include domain="user" path="."/>
+                         ~~~~
+D:\Sahil Projects\AutoCallRecorder\app\src\main\res\xml\data_extraction_rules.xml:10: Error: Unexpected domain user, expected one of root, file, database, sharedpref, external [FullBackupContent]
+        <include domain="user" path="."/>
+                         ~~~~
+
+   Explanation for issues of type "FullBackupContent":
+   Ensures that <data-extraction-rules> and <full-backup-content> files, which
+   configure backup options, are valid.
+
+   https://android-developers.googleblog.com/2015/07/auto-backup-for-apps-made-simple.html
+
+2 errors, 0 warnings

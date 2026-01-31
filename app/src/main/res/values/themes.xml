@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.AutoCallRecorder" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Floating Action Button Style -->
+        <item name="floatingActionButtonStyle">@style/Widget.Material3.FloatingActionButton.Primary</item>
+        <!-- Window Decorations -->
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">true</item> <!-- True = Black text (for light background) -->
+    </style>
+</resources>
