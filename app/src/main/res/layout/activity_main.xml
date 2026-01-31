@@ -49,6 +49,7 @@
                     android:gravity="center">
 
                     <TextView
+                        android:id="@+id/statusLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Service Status"
@@ -67,6 +68,7 @@
                         android:layout_marginBottom="8dp"/>
 
                     <TextView
+                        android:id="@+id/statusCaption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tap to manage accessibility settings"
@@ -129,6 +131,16 @@
                 android:layout_height="wrap_content"
                 android:text="Open System Accessibility Settings"
                 android:textColor="?attr/colorOnSecondaryContainer"
+                android:minHeight="56dp"
+                android:layout_marginBottom="12dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBatteryOptimizations"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Disable Battery Optimization"
+                android:textColor="?attr/colorPrimary"
                 android:minHeight="56dp"/>
             
             <TextView

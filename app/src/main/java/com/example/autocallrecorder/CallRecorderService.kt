@@ -14,28 +14,35 @@ class CallRecorderService : AccessibilityService() {
     private val serviceScope = CoroutineScope(Dispatchers.Main + Job())
     private var isOffHook = false
 
+    override fun onStartCommand(intent: android.content.Intent?, flags: Int, startId: Int): Int {
+        return START_STICKY
+    }
+
     override fun onServiceConnected() {
         super.onServiceConnected()
         Log.d("CallRecorderService", "Service Connected")
         
         try {
-            // Listen for phone state changes
             val telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-            telephonyManager.listen(object : PhoneStateListener() {
-                override fun onCallStateChanged(state: Int, phoneNumber: String?) {
-                    when (state) {
-                        TelephonyManager.CALL_STATE_OFFHOOK -> {
-                            Log.d("CallRecorderService", "Phone OFFHOOK")
-                            isOffHook = true
-                            performRecordingFlow()
-                        }
-                        TelephonyManager.CALL_STATE_IDLE -> {
-                            Log.d("CallRecorderService", "Phone IDLE")
-                            isOffHook = false
+            
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.S) {
+                Log.d("CallRecorderService", "Registering TelephonyCallback (Android 12+)")
+                telephonyManager.registerTelephonyCallback(
+                    mainExecutor,
+                    object : android.telephony.TelephonyCallback(), android.telephony.TelephonyCallback.CallStateListener {
+                        override fun onCallStateChanged(state: Int) {
+                             handleCallState(state)
                         }
                     }
-                }
-            }, PhoneStateListener.LISTEN_CALL_STATE)
+                )
+            } else {
+                Log.d("CallRecorderService", "Registering PhoneStateListener (Legacy)")
+                telephonyManager.listen(object : PhoneStateListener() {
+                    override fun onCallStateChanged(state: Int, phoneNumber: String?) {
+                        handleCallState(state)
+                    }
+                }, PhoneStateListener.LISTEN_CALL_STATE)
+            }
         } catch (e: SecurityException) {
             Log.e("CallRecorderService", "Permission missing for phone state", e)
         } catch (e: Exception) {
@@ -43,9 +50,63 @@ class CallRecorderService : AccessibilityService() {
         }
     }
 
+    private fun handleCallState(state: Int) {
+        when (state) {
+            TelephonyManager.CALL_STATE_OFFHOOK -> {
+                Log.d("CallRecorderService", "Phone OFFHOOK (State: $state)")
+                isOffHook = true
+                performRecordingFlow()
+            }
+            TelephonyManager.CALL_STATE_IDLE -> {
+                Log.d("CallRecorderService", "Phone IDLE (State: $state)")
+                isOffHook = false
+            }
+            TelephonyManager.CALL_STATE_RINGING -> {
+                 Log.d("CallRecorderService", "Phone RINGING (State: $state)")
+            }
+        }
+    }
+
+    
+    private var isProcessing = false
+    private var lastProcessedTime: Long = 0
+
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
-        // We primarily use PhoneStateListener for the trigger, 
-        // but we might need events to know when the window content has updated after clicks.
+        if (event == null || event.packageName != "com.google.android.dialer") return
+        
+        // Log every event from Dialer to verify connection
+        // Log.d("CallRecorderService", "Event from Dialer: ${AccessibilityEvent.eventTypeToString(event.eventType)}")
+
+        val root = rootInActiveWindow ?: event.source ?: return
+        
+        // Quick scan to see if we should trigger
+        // We look for the status to be sure we are in a call, or just look for the buttons.
+        if (!isProcessing) {
+             // Debounce check: Don't trigger if we just did it recently
+             // Reduced to 3 seconds (was 15s) to allow for quick redials, while still preventing immediate loops.
+             if (System.currentTimeMillis() - lastProcessedTime < 3000) {
+                 return
+             }
+
+             // Check if ALREADY recording (Look for "Stop recording", "Recording", etc)
+             val isAlreadyRecording = findNode(root, "Stop recording") != null || 
+                                      findNode(root, "Recording") != null
+             
+             if (isAlreadyRecording) {
+                 // Log.d("CallRecorderService", "Already recording. Ignoring.")
+                 return
+             }
+
+             val hasTarget = findNode(root, "Call Assist") != null || 
+                             findNode(root, "Record") != null || 
+                             findNode(root, "Call Recording") != null
+                             
+             if (hasTarget) {
+                 Log.d("CallRecorderService", "Detected Call Recorder UI elements directly! Triggering flow.")
+                 isOffHook = true // Force active state since we see the UI
+                 performRecordingFlow()
+             }
+        }
     }
 
     override fun onInterrupt() {
@@ -55,17 +116,28 @@ class CallRecorderService : AccessibilityService() {
 
 
     private fun performRecordingFlow() {
+        if (isProcessing) return
+        isProcessing = true
+        
         serviceScope.launch {
-            // Check if automation is enabled
-            val prefs = getSharedPreferences("CallRecorderPrefs", Context.MODE_PRIVATE)
-            val isEnabled = prefs.getBoolean("automation_enabled", true)
-            
-            if (!isEnabled) {
-               Log.d("CallRecorderService", "Automation disabled via toggle. Skipping.")
-               return@launch 
-            }
-
-            Log.d("CallRecorderService", "Waiting for call to become ACTIVE (finding timer)...")
+            try {
+                // Check if automation is enabled
+                val prefs = getSharedPreferences("CallRecorderPrefs", Context.MODE_PRIVATE)
+                val isEnabled = prefs.getBoolean("automation_enabled", true)
+                
+                if (!isEnabled) {
+                   Log.d("CallRecorderService", "Automation disabled via toggle. Skipping.")
+                   return@launch 
+                }
+    
+                Log.d("CallRecorderService", "Starting Recording Flow...")
+                
+                // We skip waitForCallActive() if we already saw the UI, but it doesn't hurt to check briefly
+                // or just proceed to looking for buttons.
+                
+                Log.d("CallRecorderService", "Searching for Call Assist/Record buttons...")
+                
+                // ... (Existing logic below) ...
             val callStarted = waitForCallActive()
             
             if (!callStarted) {
@@ -154,6 +226,11 @@ class CallRecorderService : AccessibilityService() {
             } ?: run {
                  Log.d("CallRecorderService", "Could not find 'Call Assist', 'Assist', or 'Record' button in any window.")
                  Log.d("CallRecorderService", "Please check the 'Bounds' in the log to identify the button 'above' the More button.")
+            }
+            } finally {
+                isProcessing = false
+                lastProcessedTime = System.currentTimeMillis()
+                Log.d("CallRecorderService", "Flow Processed. Resetting flag and setting cooldown.")
             }
         }
     }
