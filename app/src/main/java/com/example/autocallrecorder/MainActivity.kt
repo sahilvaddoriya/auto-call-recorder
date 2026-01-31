@@ -33,6 +33,9 @@ class MainActivity : AppCompatActivity() {
 
         statusText = findViewById(R.id.statusText)
         statusCard = findViewById(R.id.statusCard)
+        val statusLabel = findViewById<TextView>(R.id.statusLabel)
+        val statusCaption = findViewById<TextView>(R.id.statusCaption)
+        
         automationSwitch = findViewById(R.id.automationSwitch)
         val btnOpenSettings = findViewById<Button>(R.id.btnOpenSettings)
 
@@ -68,21 +71,27 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateServiceStatus() {
         val isServiceEnabled = isAccessibilityServiceEnabled(CallRecorderService::class.java)
+        val statusLabel = findViewById<TextView>(R.id.statusLabel)
+        val statusCaption = findViewById<TextView>(R.id.statusCaption)
         
         if (isServiceEnabled) {
             statusText.text = "ACTIVE"
-            val activeColor = com.google.android.material.color.MaterialColors.getColor(statusText, com.google.android.material.R.attr.colorPrimary)
             val containerColor = com.google.android.material.color.MaterialColors.getColor(statusCard, com.google.android.material.R.attr.colorPrimaryContainer)
+            val contentColor = com.google.android.material.color.MaterialColors.getColor(statusText, com.google.android.material.R.attr.colorOnPrimaryContainer)
             
-            statusText.setTextColor(activeColor)
             statusCard.setCardBackgroundColor(containerColor)
+            statusText.setTextColor(contentColor)
+            statusLabel.setTextColor(contentColor)
+            statusCaption.setTextColor(contentColor)
         } else {
             statusText.text = "INACTIVE"
-            val errorColor = com.google.android.material.color.MaterialColors.getColor(statusText, com.google.android.material.R.attr.colorError)
-            // val containerColor = com.google.android.material.color.MaterialColors.getColor(statusCard, com.google.android.material.R.attr.colorErrorContainer)
+            val containerColor = com.google.android.material.color.MaterialColors.getColor(statusCard, com.google.android.material.R.attr.colorErrorContainer)
+            val contentColor = com.google.android.material.color.MaterialColors.getColor(statusText, com.google.android.material.R.attr.colorOnErrorContainer)
             
-            statusText.setTextColor(errorColor)
-            // statusCard.setCardBackgroundColor(containerColor)
+            statusCard.setCardBackgroundColor(containerColor)
+            statusText.setTextColor(contentColor)
+            statusLabel.setTextColor(contentColor)
+            statusCaption.setTextColor(contentColor)
         }
     }
 
