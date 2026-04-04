@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.autocallrecorder"
+    namespace = "com.sahil.autocallrecorder"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.autocallrecorder"
+        applicationId = "com.sahil.autocallrecorder"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

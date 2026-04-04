@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:isAccessibilityTool="true"
     android:packageNames="com.google.android.dialer"
     android:accessibilityEventTypes="typeWindowContentChanged|typeWindowStateChanged"
     android:accessibilityFeedbackType="feedbackGeneric"
@@ -7,4 +8,4 @@
     android:accessibilityFlags="flagRetrieveInteractiveWindows|flagIncludeNotImportantViews"
     android:canRetrieveWindowContent="true"
     android:description="@string/accessibility_service_description"
-    android:settingsActivity="com.example.autocallrecorder.MainActivity" />
+    android:settingsActivity="com.sahil.autocallrecorder.MainActivity" />

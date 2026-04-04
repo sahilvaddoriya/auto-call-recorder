@@ -1,4 +1,4 @@
-package com.example.autocallrecorder
+package com.sahil.autocallrecorder
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Context
@@ -8,6 +8,9 @@ import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import kotlinx.coroutines.*
+import android.content.BroadcastReceiver
+import android.content.IntentFilter
+import android.content.Intent
 
 class CallRecorderService : AccessibilityService() {
 
@@ -18,9 +21,26 @@ class CallRecorderService : AccessibilityService() {
         return START_STICKY
     }
 
+    private val disableReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            if (intent?.action == "com.sahil.autocallrecorder.DISABLE_SERVICE") {
+                Log.d("CallRecorderService", "Received Disable Request. Disabling Self.")
+                disableSelf()
+            }
+        }
+    }
+
     override fun onServiceConnected() {
         super.onServiceConnected()
         Log.d("CallRecorderService", "Service Connected")
+        
+        // Register receiver for Quick Settings Tile interaction
+        val filter = IntentFilter("com.sahil.autocallrecorder.DISABLE_SERVICE")
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(disableReceiver, filter, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            registerReceiver(disableReceiver, filter)
+        }
         
         try {
             val telephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
@@ -74,13 +94,8 @@ class CallRecorderService : AccessibilityService() {
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         if (event == null || event.packageName != "com.google.android.dialer") return
         
-        // Log every event from Dialer to verify connection
-        // Log.d("CallRecorderService", "Event from Dialer: ${AccessibilityEvent.eventTypeToString(event.eventType)}")
-
         val root = rootInActiveWindow ?: event.source ?: return
-        
-        // Quick scan to see if we should trigger
-        // We look for the status to be sure we are in a call, or just look for the buttons.
+
         if (!isProcessing) {
              // Debounce check: Don't trigger if we just did it recently
              // Reduced to 3 seconds (was 15s) to allow for quick redials, while still preventing immediate loops.
@@ -111,6 +126,21 @@ class CallRecorderService : AccessibilityService() {
 
     override fun onInterrupt() {
         Log.d("CallRecorderService", "Service Interrupted")
+        cleanup()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("CallRecorderService", "Service Destroyed")
+        cleanup()
+    }
+
+    private fun cleanup() {
+        try {
+            unregisterReceiver(disableReceiver)
+        } catch (e: Exception) {
+            // Already unregistered or never registered
+        }
         serviceScope.cancel()
     }
 
@@ -256,8 +286,8 @@ class CallRecorderService : AccessibilityService() {
     private fun hasCallTimer(root: AccessibilityNodeInfo?): Boolean {
         if (root == null) return false
         
-        // Regex for 00:00, 12:34, 1:23:45
-        val timerRegex = Regex("^\\d{2}:\\d{2}$|^\\d{1,2}:\\d{2}:\\d{2}$")
+        // Regex for 00:00, 12:34, 1:23:45, 0:01
+        val timerRegex = Regex("^\\d{1,2}:\\d{2}$|^\\d{1,2}:\\d{2}:\\d{2}$")
         
         val text = root.text?.toString()
         if (text != null && timerRegex.matches(text)) {
